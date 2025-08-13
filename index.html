@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>ウボンゴ2D（ドラッグ＆タッチ対応）</title>
+  <title>ウボンゴ2D（テトロ＆ペント／接するシルエット／50問）</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,42 +12,43 @@
     <div class="controls">
       <label>難易度
         <select id="difficulty">
+          <option value="all">ぜんぶ（50問）</option>
           <option value="easy">かんたん</option>
           <option value="medium">ふつう</option>
           <option value="hard">むずかしい</option>
         </select>
       </label>
-      <button id="prevBtn" class="btn">← 前の問題</button>
-      <span id="puzzleLabel" class="label">問題 1 / 30</span>
-      <button id="nextBtn" class="btn">次の問題 →</button>
-      <button id="shuffleBtn" class="btn secondary">同じ難易度で並べ替え</button>
-      <button id="resetBtn" class="btn warn">リセット</button>
+      <button id="prevBtn" class="btn">← 前</button>
+      <span id="puzzleLabel" class="label">問題 1 / 50</span>
+      <button id="nextBtn" class="btn">次 →</button>
+      <button id="resetBtn" class="btn secondary">リセット</button>
+      <button id="exportBtn" class="btn ghost">問題JSONを書き出す</button>
     </div>
   </header>
 
   <main class="wrap">
     <section class="board-panel">
-      <div class="panel-title">ターゲット（ここをピッタリ埋めてね）</div>
+      <div class="panel-title">ターゲット（ここをピッタリ埋めよう）</div>
       <svg id="board" class="board" tabindex="0" aria-label="パズル盤面"></svg>
       <div id="status" class="status"></div>
+      <div class="hint-inline">※ スマホは<strong>ダブルタップで右回転</strong>できます。PCはダブルクリックでもOK。</div>
     </section>
 
     <section class="tray-panel">
-      <div class="panel-title">ピース（ドラッグ／タッチで動かす・ボタンで回転）</div>
+      <div class="panel-title">ピース（ドラッグ／タッチで移動・ボタンorダブルタップで回転）</div>
       <div id="tray" class="tray"></div>
       <div class="legend">
-        <p>操作ヒント：</p>
         <ul>
-          <li>ピースをドラッグ／スワイプで移動</li>
-          <li>回転ボタンで90°回転</li>
-          <li>盤面で指を離すとマス目にスナップ（ピッタリ補助）</li>
+          <li>ダブルタップ（ダブルクリック）で90°右回転。</li>
+          <li>ターゲット外・重なりは赤、正しく置けていれば緑に。</li>
+          <li>ピースは<strong>必ず接しているシルエット</strong>に収まる問題のみ（解あり）。</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <small>© Ubongo-like 2D Demo. For educational use.</small>
+    <small>© Ubongo-like 2D Demo — Tetromino & Pentomino, for educational use.</small>
   </footer>
 
   <script src="app.js"></script>

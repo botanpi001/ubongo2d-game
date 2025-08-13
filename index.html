@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>ウボンゴ2D（ドラッグ＆タッチ対応）</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">ウボンゴ2D</div>
+    <div class="controls">
+      <label>難易度
+        <select id="difficulty">
+          <option value="easy">かんたん</option>
+          <option value="medium">ふつう</option>
+          <option value="hard">むずかしい</option>
+        </select>
+      </label>
+      <button id="prevBtn" class="btn">← 前の問題</button>
+      <span id="puzzleLabel" class="label">問題 1 / 30</span>
+      <button id="nextBtn" class="btn">次の問題 →</button>
+      <button id="shuffleBtn" class="btn secondary">同じ難易度で並べ替え</button>
+      <button id="resetBtn" class="btn warn">リセット</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="board-panel">
+      <div class="panel-title">ターゲット（ここをピッタリ埋めてね）</div>
+      <svg id="board" class="board" tabindex="0" aria-label="パズル盤面"></svg>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="tray-panel">
+      <div class="panel-title">ピース（ドラッグ／タッチで動かす・ボタンで回転）</div>
+      <div id="tray" class="tray"></div>
+      <div class="legend">
+        <p>操作ヒント：</p>
+        <ul>
+          <li>ピースをドラッグ／スワイプで移動</li>
+          <li>回転ボタンで90°回転</li>
+          <li>盤面で指を離すとマス目にスナップ（ピッタリ補助）</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>© Ubongo-like 2D Demo. For educational use.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
